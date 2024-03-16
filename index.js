@@ -1,8 +1,10 @@
 
 const express = require('express')
+const path = require("path")
 const app = express()
+app.use(express.static(path.join(__dirname + "/pages")))
 app.get('/',(req,res) => {
-    res.send("Test")
+    res.sendFile(path.join(__dirname + "/pages/index.html"))
 })
 app.listen(3000,() => {
     console.log("Server running")
